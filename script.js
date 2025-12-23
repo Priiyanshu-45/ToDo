@@ -14,9 +14,8 @@ input_enter.addEventListener("keydown", (e) => {
 
 function addTodo() {
   let inp = document.querySelector("input").value;
-  if (inp === "")
+  if (inp === "") {}
     // alert("No ToDo Found.");
-  }
   else {
     let new_todo = document.createElement("div");
     new_todo.setAttribute("class", "todo");
