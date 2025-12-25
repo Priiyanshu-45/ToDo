@@ -1,6 +1,58 @@
+* {
+    font-family: "Josefin Sans", sans-serif;
+    color: #F5F5F5;
+}
+
+* button {
+    /* background-color: #6d2c4f; */
+    background-color: #444444;
+    padding: 5px;
+    border: 1px solid;
+    border-color:  #C8B8A6;
+    transition: transform 0.3s, box-shadow 0.2s;
+}
+
+* button:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);;
+    color: white;
+    background-color: #8a3b63;
+    border-color:#E0D3C2;
+    border-width: 1px;
+}
+
+.Delete { 
+    background-color: #7a2e2e; 
+    border-color: #B9B3B8;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.Delete:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);   
+    background-color: #a83232;
+    border-color: #a83232;
+}
+ 
+input {
+ padding: 5px;
+  background-color: #3a3a3a;
+  color: #F5F5F5;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+input:focus {
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 0 7px rgba(224, 211, 194, 0.8);
+  border-color: #E0D3C2;
+}
+
 h1 {
+    font-family: 400;
     margin-top: 5px;
     margin-bottom: 8px;
+    color: #F5F5F5;
 }
 
 .topbar {
@@ -9,7 +61,6 @@ h1 {
     top: 0;
     margin-bottom: 10px;
     z-index: 100;
-    background-color: white;
     padding-bottom: 5px;
 }
 
@@ -17,8 +68,12 @@ h1 {
     display: flex;
     justify-content: space-between;
     border: solid;
+   border-color: #8B6F5A;
+    border-width: 1.5px;
+    border-width: 1.5px;
+    border-radius: 7px;
     padding: 5px;
-    background-color: rosybrown;
+    background-color: rgb(88, 88, 88);
     margin-bottom: 3px;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -30,11 +85,6 @@ h1 {
     margin-right: 1vw;
     flex-shrink: 0;
 }
-
-.fxn_buttons button {
-    background-color:aqua;
-}
-
 
 .completed {
   background-color: #90EE90;

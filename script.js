@@ -3,7 +3,6 @@ function savetodo() {
 }
 
 
-
 let deleteAll_flag = 1;
 let input_enter = document.querySelector("input");
 input_enter.addEventListener("keydown", (e) => {
@@ -15,17 +14,23 @@ input_enter.addEventListener("keydown", (e) => {
 function addTodo() {
   let inp = document.querySelector("input").value;
   if (inp === "") {}
-    // alert("No ToDo Found.");
   else {
     let new_todo = document.createElement("div");
+    let btn_div = document.createElement("div");
+    btn_div.className = "fxn_buttons";  
+    let edt_Btn = document.createElement("button");
+    edt_Btn.innerText = "Edit";
+    let dlt_Btn = document.createElement("button");
+    dlt_Btn.innerText = "Delete";
     new_todo.setAttribute("class", "todo");
-    new_todo.innerHTML =
-      `${inp}                       
-      <div class="fxn_buttons">
-            <button class="Edit" onclick="EditToDo(this)">Edit
-            </button>
-            <button onclick="deleteToDo(this)"  class="Delete">Delete </button>
-        </div>`;
+    edt_Btn.setAttribute("onclick", "EditToDo(this)");
+    edt_Btn.className = "Edit";
+    dlt_Btn.className = "Delete";
+    dlt_Btn.setAttribute("onclick", "deleteToDo(this)");
+    btn_div.appendChild(edt_Btn);
+    btn_div.appendChild(dlt_Btn);
+    new_todo.textContent = `${inp}`    
+    new_todo.appendChild(btn_div);
     document.querySelector(".todoList").appendChild(new_todo);
     document.querySelector("input").value = "";
     if (deleteAll_flag) {
@@ -44,6 +49,9 @@ function addTodo() {
 function deleteToDo(dlt) {
   let element = dlt.parentElement.parentElement;
   element.remove(); 
+  if (document.querySelector(".todoList").children.length === 0) {
+    deleteAll();
+  }
   savetodo();
 }
 
@@ -77,12 +85,15 @@ function mark(e) {
 
 window.addEventListener("load", () => {
  let data = localStorage.getItem("todos")
-  document.querySelector(".todoList").innerHTML = data;
-    deleteAll_flag = 0;
+  if (data ) { //data can be null after delete all or it can be empty.
+    document.querySelector(".todoList").innerHTML = data;
     let dlt_all = document.createElement("button");
     dlt_all.textContent = "Delete All";
     dlt_all.setAttribute("onclick", "deleteAll()");
     dlt_all.setAttribute("class", "dlt_all");
     document.querySelector(".topbar").appendChild(dlt_all);
+    deleteAll_flag = 0
+  }
+  
 })
 
